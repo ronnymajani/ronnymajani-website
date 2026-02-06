@@ -1,0 +1,43 @@
+---
+---
+
+<header id="main-header" class="fixed top-0 left-0 right-0 z-50 flex justify-center w-full transition-all duration-300 border-b border-transparent">
+  <div class="w-full max-w-[1200px] px-6 py-6 transition-all duration-300 flex justify-between items-center" id="header-container">
+    <a href="/" class="block hover:opacity-80 transition-opacity">
+      <img 
+        src="/images/1G8P2N75a90T5MqPBy35ok8jqQ.png" 
+        alt="Ronny Majani" 
+        class="w-[42px] h-auto md:w-[48px]"
+      />
+    </a>
+
+    <nav class="flex items-center gap-6 font-medium text-[15px]">
+      <a href="#work" class="hidden md:block hover:opacity-60 transition-opacity">Work</a>
+      <a href="#experience" class="hidden md:block hover:opacity-60 transition-opacity">Experience</a>
+      <a href="#faq" class="hidden md:block hover:opacity-60 transition-opacity">FAQ</a>
+      <a href="mailto:hello@ronnymajani.com" class="px-6 py-3 bg-foreground text-background rounded-full hover:opacity-90 transition-opacity" id="cta-button">
+        Say Hi
+      </a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('main-header');
+  const container = document.getElementById('header-container');
+  const ctaBtn = document.getElementById('cta-button');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      // Scrolled state
+      header.classList.add('bg-[#f9f8f5]/80', 'backdrop-blur-xl', 'border-gray-200/50');
+      container.classList.remove('py-6');
+      container.classList.add('py-3'); // Thinner
+    } else {
+      // Top state
+      header.classList.remove('bg-[#f9f8f5]/80', 'backdrop-blur-xl', 'border-gray-200/50');
+      container.classList.add('py-6');
+      container.classList.remove('py-3');
+    }
+  });
+</script>

@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const { 
+	title = "Ronny Majani | Software Engineering Consultant",
+	description = "Full-stack engineer and consultant helping teams build reliable, scalable systems — from firmware to cloud. Bridging technology, product, and operations to deliver products that actually ship."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/favicon-light.png" media="(prefers-color-scheme: light)" />
+		<link rel="icon" type="image/png" href="/favicon-dark.png" media="(prefers-color-scheme: dark)" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		
+		<!-- Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Hanken+Grotesk:wght@300;400;500;700&family=Lustria&family=Allison&display=swap" rel="stylesheet">
+	</head>
+	<body class="antialiased selection:bg-[#1e1515] selection:text-white">
+		<slot />
+	</body>
+</html>

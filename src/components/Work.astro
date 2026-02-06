@@ -1,0 +1,87 @@
+---
+const caseStudies = [
+  {
+    title: "Skuba - Dive Planning Reinvented",
+    description: "Designed and built an all-in-one toolkit for recreational and technical divers, optimizing for real-world field use and cross-platform performance on iOS and Android.",
+    stats: [
+      { label: "Idea to Published", value: "2 months" },
+      { label: "User Satisfaction", value: "4.5*" }
+    ],
+    image: "/images/skuba-app.jpeg",
+    bgColor: "bg-[#dfefd7]"
+  },
+  {
+    title: "Neoma Group - Supercritical CO₂ Extraction",
+    description: "Set up and managed the launch of a new supercritical CO₂ extraction facility in Turkey. Built internal ERP and CRM tools to streamline production tracking, sales, and project coordination.",
+    stats: [
+      { label: "Operational Scope", value: "2 factories" },
+      { label: "Systems Deployed", value: "ERP + CRM" }
+    ],
+    image: "/images/9pSrYTW6YIlStQLrSDAPCwI4WDU.jpg",
+    bgColor: "bg-[#fae5d1]"
+  },
+  {
+    title: "Fraim - Distributed Conversations Platform",
+    description: "Led the end-to-end build of a distributed conversation aggregation and proactive chat system, from mobile to cloud. Designed for scalability and real-time performance.",
+    stats: [
+      { label: "Team", value: "7 people" },
+      { label: "MVP Built In", value: "9 months" }
+    ],
+    image: "/images/yCjlpydFcllzpNAPxj3kEFHcGZA.jpg",
+    bgColor: "bg-[#e7e0eb]"
+  },
+  {
+    title: "Seer Sense - Wearable Epilepsy Diagnostic",
+    description: "Architected and developed firmware for a portable EEG/ECG device capturing week-long clinical-grade data while maintaining ultra-low power consumption.",
+    stats: [
+      { label: "Patients Served", value: "1000+" },
+      { label: "Battery Life", value: "7 days" }
+    ],
+    image: "/images/Ua4TDAWYzjS7lMNrmxlTl6ZcaDQ.jpg",
+    bgColor: "bg-[#d1eafa]"
+  }
+];
+---
+
+<section id="work" class="px-6 py-12 md:py-20 max-w-[1200px] mx-auto">
+  <div class="flex flex-col gap-8">
+    {caseStudies.map((study, index) => (
+      <div class={`sticky top-24 md:top-32 group rounded-[32px] overflow-hidden transition-all duration-500 hover:scale-[1.02] shadow-sm`} style={{ zIndex: index + 1 }}>
+        <div class={`${study.bgColor} flex flex-col md:flex-row h-full min-h-[500px]`}>
+          <div class="p-8 md:p-12 md:w-1/2 flex flex-col justify-between order-2 md:order-1">
+            <div>
+              <h3 class="text-2xl md:text-3xl font-display font-medium text-[#1e1515] mb-4">
+                {study.title}
+              </h3>
+              <p class="text-lg text-gray-700 leading-relaxed font-light">
+                {study.description}
+              </p>
+            </div>
+            
+            <div class="flex gap-12 mt-12 pt-12 border-t border-black/10">
+              {study.stats.map(stat => (
+                <div>
+                  <p class="text-sm text-gray-500 mb-1">{stat.label}</p>
+                  <p class="text-xl font-medium text-[#1e1515]">{stat.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="md:w-1/2 order-1 md:order-2 h-[300px] md:h-auto relative overflow-hidden">
+             <img 
+              src={study.image} 
+              alt={study.title} 
+              class="absolute inset-0 w-full h-full object-cover object-left transition-transform duration-700 group-hover:scale-105"
+            />
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+  
+  <div class="flex justify-center mt-16 relative z-10">
+    <a href="/case-studies" class="inline-flex items-center gap-2 px-8 py-4 bg-white border border-gray-200 rounded-full hover:bg-gray-50 transition-colors text-base font-medium shadow-sm hover:shadow-md">
+      View All Case Studies
+    </a>
+  </div>
+</section>

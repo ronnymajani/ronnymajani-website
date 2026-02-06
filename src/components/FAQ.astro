@@ -1,0 +1,81 @@
+---
+const faqs = [
+  {
+    question: "What's your availability?",
+    answer: "I am currently accepting new projects. Please reach out to discuss your timeline and requirements."
+  },
+  {
+    question: "Do you use AI tools for development?",
+    answer: "Yes, I leverage AI tools to enhance productivity and solve complex problems efficiently, while maintaining high code quality and architectural integrity."
+  },
+  {
+    question: "What timezones are you in?",
+    answer: "I work effectively across multiple timezones. I am based in Europe, but I am accustomed to working with distributed teams globally."
+  },
+  {
+    question: "What do you do in your free time?",
+    answer: "I enjoy building side projects, exploring new technologies, and contributing to open source projects."
+  }
+];
+---
+
+<section id="faq" class="px-6 py-12 md:py-20 max-w-[1000px] mx-auto">
+  <div class="mb-8">
+    <h2 class="text-4xl md:text-5xl font-display text-[#1e1515] mb-4">Frequently asked questions</h2>
+  </div>
+
+  <div class="space-y-4">
+    {faqs.map((faq, index) => (
+      <div class="faq-item border-b border-gray-200">
+        <button class="w-full flex justify-between items-center font-medium cursor-pointer py-6 text-xl md:text-2xl text-[#1e1515] hover:text-gray-600 transition-colors text-left focus:outline-none">
+          <span>{faq.question}</span>
+          <span class="faq-icon transition-transform duration-300">
+            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
+          </span>
+        </button>
+        <div class="faq-content grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out">
+          <div class="overflow-hidden">
+            <div class="text-gray-600 mt-2 mb-6 text-lg font-light leading-relaxed">
+              <p>{faq.answer}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<script>
+  // Robust vanilla JS accordion
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const button = item.querySelector('button');
+    const content = item.querySelector('.faq-content');
+    const icon = item.querySelector('.faq-icon');
+
+    button.addEventListener('click', () => {
+      const isOpen = content.classList.contains('grid-rows-[1fr]');
+      
+      // Close all others
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.querySelector('.faq-content').classList.remove('grid-rows-[1fr]');
+          otherItem.querySelector('.faq-content').classList.add('grid-rows-[0fr]');
+          otherItem.querySelector('.faq-icon').classList.remove('rotate-180');
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        content.classList.remove('grid-rows-[1fr]');
+        content.classList.add('grid-rows-[0fr]');
+        icon.classList.remove('rotate-180');
+      } else {
+        content.classList.remove('grid-rows-[0fr]');
+        content.classList.add('grid-rows-[1fr]');
+        icon.classList.add('rotate-180');
+      }
+    });
+  });
+</script>
